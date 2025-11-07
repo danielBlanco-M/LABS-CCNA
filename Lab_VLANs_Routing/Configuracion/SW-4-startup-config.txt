@@ -1,0 +1,135 @@
+Current configuration : 2260 bytes
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname SW4
+!
+enable secret 5 $1$mERr$zU/OhmPOrIxrk68Sj4Mzz/
+!
+!
+!
+ip domain-name cisco.com
+!
+username admin secret 5 $1$mERr$zU/OhmPOrIxrk68Sj4Mzz/
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/3
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/4
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/5
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/6
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/7
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/8
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/9
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/10
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/11
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/12
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/13
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/14
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ switchport trunk allowed vlan 30,40
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan40
+ description IP VLAN 40
+ ip address 192.168.8.28 255.255.255.240
+!
+ip default-gateway 192.168.8.17
+!
+banner motd ^C solo personal autorizado ^C
+!
+!
+!
+line con 0
+ password 7 0822455D0A160916105A5E57
+ logging synchronous
+ login
+ exec-timeout 5 0
+!
+line vty 0 4
+ exec-timeout 5 0
+ login local
+ transport input ssh
+line vty 5 15
+ exec-timeout 5 0
+ login local
+ transport input ssh
+!
+!
+!
+!
+end
